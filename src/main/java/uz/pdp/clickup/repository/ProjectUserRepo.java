@@ -1,0 +1,15 @@
+package uz.pdp.clickup.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import uz.pdp.clickup.entity.ProjectUser;
+
+import java.util.UUID;
+
+@Repository
+public interface ProjectUserRepo extends JpaRepository<ProjectUser, UUID> {
+    boolean existsByProjectIdAndMemberId(UUID project_id, UUID member_id);
+
+    void deleteAllByProjectIdAndMemberId(UUID project_id, UUID member_id);
+
+}
